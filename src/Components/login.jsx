@@ -26,7 +26,7 @@ export default function Login() {
 
           <div className="actions">
             <span>
-              ¿Eres nuevo? <a href="#">Crear cuenta</a>
+              ¿Eres nuevooo? <a href="#">Crear cuenta</a>
             </span>
             <button className="btn-enter" >Entrar</button>
           </div>
