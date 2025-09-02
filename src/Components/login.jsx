@@ -1,48 +1,139 @@
+// login.jsx
 import React from "react";
 import "./login.css";
-import { useNavigate } from "react-router-dom";
 
-export default function Login() {
-  const navigate = useNavigate();
-  return (
-    <div className="login-container">
-      {/* Logo y menú superior */}
-      <header className="login-header">
-        <img src="/public/logo.png" alt="BrainKidz logo" className="logo" />
-        <nav>
-          <a href="#">Padres</a>
-          <a href="#">Ayuda</a>
-        </nav>
-      </header>
+class LoginComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mode: this.props.mode || "login" // valor por defecto si no recibe props
+    };
+  } 
 
-      {/* Contenido principal */}
-      <main className="login-main">
-        <div className="login-left">
-          <img src="/public/logo2.png" alt="Mascota" className="mascota" />
-        </div>
+  toggleMode() {
+    const newMode = this.state.mode === "login" ? "signup" : "login";
+    this.setState({ mode: newMode });
+  }
 
-        <div className="login-right">
-          <h3>Ingresa a tu cuenta</h3>
-          <input type="text" placeholder="usuario" className="input" />
-          <input type="password" placeholder="contraseña" className="input" />
+  render() {
+    return (
+      <div>
+        <div
+          className={`form-block-wrapper form-block-wrapper--is-${this.state.mode}`}
+        ></div>
 
-          <div className="actions">
-            <span>
-              ¿Eres nuevooo? <a href="#">Crear cuenta</a>
-            </span>
-            <button className="btn-enter" onClick={() => navigate("/biblioteca")}>
-              Entrar
-            </button>
+        <section className={`form-block form-block--is-${this.state.mode}`}>
+          <header className="form-block__header">
+            <h1>
+              {this.state.mode === "login" ? "Welcome back!" : "Sign up"}
+            </h1>
+
+            <div className="form-block__toggle-block">
+              <span>
+                {this.state.mode === "login" ? "Don’t" : "Already"} have an
+                account? Click here &#8594;
+              </span>
+              <input
+                id="form-toggler"
+                type="checkbox"
+                onClick={this.toggleMode.bind(this)}
+              />
+              <label htmlFor="form-toggler"></label>
+            </div>
+          </header>
+
+          <LoginForm mode={this.state.mode} onSubmit={this.props.onSubmit} />
+        </section>
+      </div>
+    );
+  }
+}
+
+class LoginForm extends React.Component {
+  render() {
+    return (
+      <form onSubmit={this.props.onSubmit}>
+        <div className="form-block__input-wrapper">
+          <div className="form-group form-group--login">
+            <Input
+              type="text"
+              id="username"
+              label="user name"
+              disabled={this.props.mode === "signup"}
+            />
+            <Input
+              type="password"
+              id="password"
+              label="password"
+              disabled={this.props.mode === "signup"}
+            />
           </div>
 
-          <a href="#" className="forgot">
-            ¿Olvidaste tu contraseña?
-          </a>
+          <div className="form-group form-group--signup">
+            <Input
+              type="text"
+              id="fullname"
+              label="full name"
+              disabled={this.props.mode === "login"}
+            />
+            <Input
+              type="email"
+              id="email"
+              label="email"
+              disabled={this.props.mode === "login"}
+            />
+            <Input
+              type="password"
+              id="createpassword"
+              label="password"
+              disabled={this.props.mode === "login"}
+            />
+            <Input
+              type="password"
+              id="repeatpassword"
+              label="repeat password"
+              disabled={this.props.mode === "login"}
+            />
+          </div>
         </div>
-      </main>
+
+        <button
+          className="button button--primary full-width"
+          type="submit"
+        >
+          {this.props.mode === "login" ? "Log In" : "Sign Up"}
+        </button>
+      </form>
+    );
+  }
+}
+
+const Input = ({ id, type, label, disabled }) => (
+  <input
+    className="form-group__input"
+    type={type}
+    id={id}
+    placeholder={label}
+    disabled={disabled}
+  />
+);
+
+// Componente principal que usarás en tu App
+const Login = () => {
+  return (
+    <div className="app app--is-login">
+      <LoginComponent
+        mode="login"
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log("submit");
+        }}
+      />
     </div>
   );
-}
+};
+
+export default Login;
 
 
 
