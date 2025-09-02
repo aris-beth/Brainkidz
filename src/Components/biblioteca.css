@@ -1,0 +1,126 @@
+/* BrainKidz.css */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(to bottom, #fceabb, #f8b500);
+    margin: 0;
+    padding: 0;
+}
+
+.brainkidz-container {
+    padding: 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffcc70;
+    padding: 10px 20px;
+    border-radius: 10px;
+    animation: bounceIn 1s ease;
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: #ff6f61;
+    text-shadow: 2px 2px #fff;
+}
+
+.menu a {
+    margin: 0 10px;
+    color: #4a4a4a;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.menu a:hover {
+    transform: scale(1.1);
+    color: #ff6f61;
+}
+
+.main-content {
+    margin-top: 20px;
+}
+
+.biblioteca h2,
+.continuar h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.libros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.libro-card {
+    background-color: #fff3cd;
+    border: 2px dashed #ff6f61;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    animation: popIn 0.5s ease;
+    transition: transform 0.3s;
+}
+
+.libro-card:hover {
+    transform: scale(1.05);
+    background-color: #ffeeba;
+}
+
+.continuar-card {
+    background-color: #d4edda;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 1s ease;
+}
+
+.continuar-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+}
+
+.continuar-btn:hover {
+    background-color: #218838;
+}
+
+.play-icon {
+    font-size: 1.2rem;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}

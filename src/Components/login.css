@@ -1,0 +1,237 @@
+/* Reset y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #f22222 0%, #1f82bf 100%);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor principal - OCUPA TODA LA PANTALLA */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Header */
+.login-header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.login-header .logo {
+    height: 150px;
+}
+
+.login-header nav a {
+    margin-left: 50px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+
+}
+
+.login-header nav a:hover {
+    color: #f9c0c0;
+}
+
+.login-main {
+    padding: 0; /* quita el espacio lateral */
+    width: 100%;
+    align-items: stretch;
+}
+
+.login-content {
+    display: flex;
+    justify-content: space-around; /* reparte el oso y el form */
+    align-items: center;
+    width: 100%; /* ocupa todo el ancho */
+    border-radius: 0; /* llega hasta las orillas */
+    padding: 60px 80px; /* más aire a los lados */
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    gap: 80px; /* más espacio entre oso y formulario */
+}
+
+
+/* Imagen de la mascota */
+.mascota-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mascota {
+    width: 100%;
+    max-width: 320px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Panel derecho */
+.login-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 380px;
+}
+
+.login-right h3 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    text-align: center;
+    color: #fdfcfc;
+}
+
+/* Inputs */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input {
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.input:focus {
+    border-color: #f9c0c0;
+    box-shadow: 0 0 0 3px rgba(249, 192, 192, 0.3);
+}
+
+/* Botón y enlaces */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.actions span {
+    font-size: 18px;
+}
+
+.actions a {
+    font-weight: bold;
+    color: #f9c0c0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.actions a:hover {
+    color: #ffaaaa;
+    text-decoration: underline;
+}
+
+.btn-enter {
+    background: #f9c0c0;
+    border: 2px solid #f9c0c0;
+    border-radius: 12px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #333;
+}
+
+.btn-enter:hover {
+    background: #ffaaaa;
+    border-color: #ffaaaa;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.forgot {
+    font-size: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    margin-top: 5px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.forgot:hover {
+    color: #c2f8f6;
+
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .login-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .mascota {
+        max-width: 250px;
+    }
+
+    .login-right {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-enter {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .login-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .login-header nav {
+        display: flex;
+        gap: 15px;
+    }
+
+    .login-header nav a {
+        margin-left: 0;
+    }
+
+    .login-content {
+        padding: 30px 20px;
+    }
+
+    .login-right h3 {
+        font-size: 22px;
+    }
+}
