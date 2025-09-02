@@ -1,7 +1,9 @@
 import React from "react";
 import "./login.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   return (
     <div className="login-container">
       {/* Logo y menú superior */}
