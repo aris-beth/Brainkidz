@@ -1,12 +1,15 @@
 import React from 'react';
 import Login from './components/login.jsx';
+import { Router, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <Login />
-      <biblioteca/>
-    </div>
+    <Router>
+        <Routes>
+          <Route path={"/login"} component={Login} />
+          <Route path={"/biblioteca"} component={Biblioteca} />
+        </Routes>
+    </Router>
   );
 }
 

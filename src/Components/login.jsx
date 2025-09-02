@@ -28,7 +28,9 @@ export default function Login() {
             <span>
               ¿Eres nuevooo? <a href="#">Crear cuenta</a>
             </span>
-            <button className="btn-enter" >Entrar</button>
+            <button className="btn-enter" onClick={() => navigate("/biblioteca")}>
+              Entrar
+            </button>
           </div>
 
           <a href="#" className="forgot">
