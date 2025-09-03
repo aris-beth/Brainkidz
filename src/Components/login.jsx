@@ -8,7 +8,7 @@ class LoginComponent extends React.Component {
     this.state = {
       mode: this.props.mode || "login" // valor por defecto si no recibe props
     };
-  } 
+  } x
 
   toggleMode() {
     const newMode = this.state.mode === "login" ? "signup" : "login";
@@ -25,13 +25,12 @@ class LoginComponent extends React.Component {
         <section className={`form-block form-block--is-${this.state.mode}`}>
           <header className="form-block__header">
             <h1>
-              {this.state.mode === "login" ? "Welcome back!" : "Sign up"}
+              {this.state.mode === "login" ? "¡Hola! Ingresa a tu cuenta" : "Registrate"}
             </h1>
 
             <div className="form-block__toggle-block">
               <span>
-                {this.state.mode === "login" ? "Don’t" : "Already"} have an
-                account? Click here &#8594;
+                {this.state.mode === "login" ? "¿No" : "¿Ya"} tienes una cuenta? Click aquí &#8594;
               </span>
               <input
                 id="form-toggler"
@@ -58,13 +57,13 @@ class LoginForm extends React.Component {
             <Input
               type="text"
               id="username"
-              label="user name"
+              label="usuario"
               disabled={this.props.mode === "signup"}
             />
             <Input
               type="password"
               id="password"
-              label="password"
+              label="contraseña"
               disabled={this.props.mode === "signup"}
             />
           </div>
@@ -73,25 +72,43 @@ class LoginForm extends React.Component {
             <Input
               type="text"
               id="fullname"
-              label="full name"
+              label="1. Escribe tu nombre"
               disabled={this.props.mode === "login"}
             />
             <Input
-              type="email"
-              id="email"
-              label="email"
+              type="text"
+              id="user"
+              label="2. Crea tu usuario"
               disabled={this.props.mode === "login"}
             />
             <Input
               type="password"
               id="createpassword"
-              label="password"
+              label="3. Crea tu contraseña"
               disabled={this.props.mode === "login"}
             />
             <Input
               type="password"
               id="repeatpassword"
-              label="repeat password"
+              label="4. Repite tu contraseña"
+              disabled={this.props.mode === "login"}
+            />
+            <Input
+              type="mail"
+              id="email"
+              label="5. Ingresa el correo de tu tutor"
+              disabled={this.props.mode === "login"}
+            />
+            <Input
+              type="text"
+              id="tutname"
+              label="6. Ingresa el nombre de tu tutor"
+              disabled={this.props.mode === "login"}
+            />
+            <Input
+              type="date"
+              id="datebirth"
+              label="7. Ingresa tu fecha de nacimiento"
               disabled={this.props.mode === "login"}
             />
           </div>
@@ -101,7 +118,7 @@ class LoginForm extends React.Component {
           className="button button--primary full-width"
           type="submit"
         >
-          {this.props.mode === "login" ? "Log In" : "Sign Up"}
+          {this.props.mode === "login" ? "Ingresar" : "Registrarse"}
         </button>
       </form>
     );
